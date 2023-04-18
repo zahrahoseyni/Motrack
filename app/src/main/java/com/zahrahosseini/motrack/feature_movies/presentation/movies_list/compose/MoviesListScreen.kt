@@ -61,12 +61,14 @@ fun MoviesListScreen(
                 }
                 .padding(8.dp)) {
             item {
-                moviesList.forEach {
+                moviesList.forEach { movie ->
                     MovieItem(
-                        it,
+                        movie,
                         modifier = Modifier
                             .bgRounded20WhiteStrokeNeutral15()
-                    )
+                    ){
+                        viewModel.selectedMovieId.value = it
+                    }
                 }
             }
         }

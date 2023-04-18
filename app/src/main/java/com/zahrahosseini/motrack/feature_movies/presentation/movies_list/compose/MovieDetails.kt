@@ -1,6 +1,5 @@
 package com.zahrahosseini.motrack.feature_movies.presentation.movies_list.compose
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -14,8 +13,8 @@ import com.zahrahosseini.motrack.core.presentation.design_system.theme.moTrackCo
 import com.zahrahosseini.motrack.feature_movies.domain.entity.MovieItem
 
 @Composable
-fun MovieItem(
-    movie: MovieItem, modifier: Modifier = Modifier, onMovieItemClicked: (movieId: Int) -> Unit
+fun MovieDetails(
+    movie: MovieItem, modifier: Modifier = Modifier,
 ) {
 
     ConstraintLayout(
@@ -23,11 +22,10 @@ fun MovieItem(
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(8.dp)
-            .clickable {
-                onMovieItemClicked(movie.id)
-            }
     ) {
+
         val (txtTitle, txtReleaseDate, txtVoteAvg) = createRefs()
+
 
         val startGuideline = createGuidelineFromStart(8.dp)
         val topGuideline = createGuidelineFromTop(8.dp)

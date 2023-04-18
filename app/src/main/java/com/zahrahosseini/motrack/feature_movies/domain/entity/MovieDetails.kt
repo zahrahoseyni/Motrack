@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class MovieItem(
+data class MovieDetails(
     val id: Int,
     val title: String,
     @SerializedName("original_language")
@@ -18,5 +18,4 @@ data class MovieItem(
     val voteCount: Int,
     @SerializedName("release_date")
     val releaseDate: String,
-
-) : Parcelable
+    ) : Parcelable

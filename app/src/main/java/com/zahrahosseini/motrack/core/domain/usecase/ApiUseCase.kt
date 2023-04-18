@@ -16,9 +16,8 @@ abstract class ApiUseCase<in P, R>(
         return try {
             withContext(coroutineDispatcher) {
                 execute(parameters).let {
-
                     if (it.isSuccessful) {
-                            ApiResult.Success(it.body()!!)
+                        ApiResult.Success(it.body()!!)
 
                     } else {
                         val gson = Gson()
@@ -28,7 +27,11 @@ abstract class ApiUseCase<in P, R>(
 
                         if (errorResponse?.errors == null) {
                             ApiResult.Error(Exception("Unknown Error"))
-                        }  else {
+                        } else if (it.code() == 401 || it.code() == 404) {
+
+                            ApiResult.Error(Exception("known Error"))
+
+                        } else {
                             ApiResult.ServerError(errorResponse)
                         }
                     }

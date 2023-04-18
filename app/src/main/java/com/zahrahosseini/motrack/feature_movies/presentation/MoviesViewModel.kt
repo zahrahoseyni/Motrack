@@ -1,5 +1,7 @@
 package com.zahrahosseini.motrack.feature_movies.presentation
 
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.zahrahosseini.motrack.core.utils.network.ApiResult
@@ -18,6 +20,9 @@ import javax.inject.Inject
 @HiltViewModel
 class MoviesViewModel @Inject constructor(private val moviesListUseCase: MoviesListUseCase) :
     ViewModel() {
+
+    var selectedMovieId: MutableState<Int> = mutableStateOf(1)
+
 
     private val _moviesResult =
         MutableStateFlow<MutableList<MovieItem>>(mutableListOf())

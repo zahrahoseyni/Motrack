@@ -6,4 +6,5 @@ import retrofit2.Response
 
 interface MovieRepository {
     suspend fun getMoviesList(moviesListArg: MoviesListArg): Response<MoviesListResponse>
+    suspend fun getMoviesList(moviesListArg: MoviesListArg): Response<MoviesListResponse>
 }
