@@ -18,6 +18,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.zahrahosseini.motrack.R
+import com.zahrahosseini.motrack.core.presentation.design_system.shapes.bgRounded20WhiteStrokeNeutral15
 import com.zahrahosseini.motrack.core.utils.ApiConstants.Companion.API_KEY
 import com.zahrahosseini.motrack.feature_movies.domain.entity.MoviesListArg
 import com.zahrahosseini.motrack.feature_movies.presentation.MoviesViewModel
@@ -29,9 +30,6 @@ fun MoviesListScreen(
     viewModel.getMoviesList(
         MoviesListArg(
             apiKey = API_KEY,
-            language = "en-US",
-            page = 1,
-            region = ""
         )
     )
     val moviesList by viewModel.moviesResult.collectAsState()
@@ -53,17 +51,22 @@ fun MoviesListScreen(
         )
 
         LazyColumn(
-            verticalArrangement = Arrangement.spacedBy(7.dp),
-            modifier = Modifier.constrainAs(cmpList) {
-                top.linkTo(txtHeader.bottom, 16.dp)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier
+                .constrainAs(cmpList) {
+                    top.linkTo(txtHeader.bottom, 16.dp)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
 
-            }
-        ) {
+                }
+                .padding(8.dp)) {
             item {
                 moviesList.forEach {
-                    MovieItem(it)
+                    MovieItem(
+                        it,
+                        modifier = Modifier
+                            .bgRounded20WhiteStrokeNeutral15()
+                    )
                 }
             }
         }

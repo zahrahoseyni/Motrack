@@ -1,5 +1,8 @@
 package com.zahrahosseini.motrack.feature_movies.presentation.movies_list.compose
 
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -14,42 +17,47 @@ fun MovieItem(
     movie: MovieItem, modifier: Modifier = Modifier,
 ) {
 
-    ConstraintLayout(modifier = modifier) {
-        val (txtTitle, txtOriginalTitle, txtVoteAvg) = createRefs()
+    ConstraintLayout(
+        modifier = modifier
+            .fillMaxWidth()
+            .wrapContentHeight()
+            .padding(8.dp)
+    ) {
+        val (txtTitle, txtReleaseDate, txtVoteAvg) = createRefs()
 
         val startGuideline = createGuidelineFromStart(8.dp)
         val topGuideline = createGuidelineFromTop(8.dp)
 
         Text(
             text = movie.title,
-            modifier = modifier.constrainAs(txtTitle) {
+            modifier = Modifier.constrainAs(txtTitle) {
                 top.linkTo(topGuideline)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
+                start.linkTo(startGuideline)
+
             },
             color = MaterialTheme.moTrackColors.designSystem.Neutral45,
-            style = MaterialTheme.typography.displayMedium
+            style = MaterialTheme.typography.bodySmall
         )
 
         Text(
-            text = movie.originalTitle,
-            modifier = modifier.constrainAs(txtOriginalTitle) {
+            text = movie.releaseDate,
+            modifier = Modifier.constrainAs(txtReleaseDate) {
                 top.linkTo(txtTitle.bottom, 8.dp)
                 start.linkTo(startGuideline)
             },
             color = MaterialTheme.moTrackColors.designSystem.Neutral35,
-            style = MaterialTheme.typography.displayMedium
+            style = MaterialTheme.typography.bodySmall
         )
 
 
         Text(
             text = movie.voteAvg.toString(),
-            modifier = modifier.constrainAs(txtVoteAvg) {
-                top.linkTo(txtOriginalTitle.bottom, 8.dp)
+            modifier = Modifier.constrainAs(txtVoteAvg) {
+                top.linkTo(txtReleaseDate.bottom, 8.dp)
                 start.linkTo(startGuideline)
             },
             color = MaterialTheme.moTrackColors.designSystem.Neutral35,
-            style = MaterialTheme.typography.displayMedium
+            style = MaterialTheme.typography.bodySmall
         )
 
     }

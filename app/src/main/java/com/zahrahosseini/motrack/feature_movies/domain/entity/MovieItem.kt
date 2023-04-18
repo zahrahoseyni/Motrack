@@ -16,4 +16,6 @@ data class MovieItem(
     val voteAvg: Float,
     @SerializedName("vote_count")
     val voteCount: Int,
+    @SerializedName("release_date")
+    val releaseDate: String,
 ) : Parcelable
