@@ -5,6 +5,5 @@ import com.zahrahosseini.motrack.feature_movies.domain.entity.MoviesListResponse
 import retrofit2.Response
 
 interface MovieRepository {
-
     suspend fun getMoviesList(moviesListArg: MoviesListArg): Response<MoviesListResponse>
 }

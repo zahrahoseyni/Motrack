@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Motrack</string>
 
-    <string name="txt_header">Movies List</string>
+    <string name="txt_header">Popular Movies</string>
 </resources>

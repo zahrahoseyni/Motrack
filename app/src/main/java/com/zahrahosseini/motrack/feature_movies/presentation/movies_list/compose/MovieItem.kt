@@ -15,7 +15,7 @@ fun MovieItem(
 ) {
 
     ConstraintLayout(modifier = modifier) {
-        val (txtTitle, txtOriginalTitle, txtVoteAvg, txtVoteCount, txtOriginLanguage) = createRefs()
+        val (txtTitle, txtOriginalTitle, txtVoteAvg) = createRefs()
 
         val startGuideline = createGuidelineFromStart(8.dp)
         val topGuideline = createGuidelineFromTop(8.dp)
