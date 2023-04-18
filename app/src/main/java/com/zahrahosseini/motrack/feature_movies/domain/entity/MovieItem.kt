@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Movie(
+data class MovieItem(
     val id: Int,
     val title: String,
     @SerializedName("original_language")

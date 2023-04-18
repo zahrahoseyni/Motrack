@@ -1,4 +1,4 @@
-package com.zahrahosseini.motrack.feature_movies.presentation.movies_list
+package com.zahrahosseini.motrack.feature_movies.presentation.movies_list.compose
 
 import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
@@ -7,11 +7,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.zahrahosseini.motrack.core.presentation.design_system.theme.moTrackColors
-import com.zahrahosseini.motrack.feature_movies.domain.entity.Movie
+import com.zahrahosseini.motrack.feature_movies.domain.entity.MovieItem
 
 @Composable
 fun MovieItem(
-    movie: Movie, modifier: Modifier = Modifier,
+    movie: MovieItem, modifier: Modifier = Modifier,
 ) {
 
     ConstraintLayout(modifier = modifier) {

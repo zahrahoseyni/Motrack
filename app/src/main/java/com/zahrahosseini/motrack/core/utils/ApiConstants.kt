@@ -3,6 +3,7 @@ package com.zahrahosseini.motrack.core.utils
 class ApiConstants {
 
     companion object {
-        const val BASE_URL = "https://developers.themoviedb.org/3/"
+        const val BASE_URL = "https://api.themoviedb.org/3/"
     }
 }
+
