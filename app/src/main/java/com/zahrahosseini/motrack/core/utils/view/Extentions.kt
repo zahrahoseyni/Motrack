@@ -23,7 +23,7 @@ fun Context.handleExceptions(exception: Exception) {
         is ConnectException,
         is UnknownHostException -> "An error occurred while connecting to the network"
         else -> {
-            "Unexpected error happened"
+            exception.message
         }
     }
     this.showToast(message)

@@ -20,9 +20,9 @@ fun MovieItem(
 
     ConstraintLayout(
         modifier = modifier
+            .padding(16.dp)
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(16.dp)
             .clickable {
                 onMovieItemClicked(movie.id)
             }

@@ -25,13 +25,12 @@ abstract class ApiUseCase<in P, R>(
                         val errorResponse: GeneralError? =
                             gson.fromJson(it.errorBody()!!.charStream(), type)
 
-                        if (errorResponse?.errors == null) {
-                            ApiResult.Error(Exception("Unknown Error"))
-                        } else if (it.code() == 401 || it.code() == 404) {
+                        if (it.code() == 401 || it.code() == 404) {
 
-                            ApiResult.Error(Exception("known Error"))
+                            ApiResult.Error(Exception(errorResponse?.status))
 
-                        } else {
+                        }
+                        else {
                             ApiResult.ServerError(errorResponse)
                         }
                     }

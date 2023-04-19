@@ -7,14 +7,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class GeneralError(
-    @SerializedName("errors")
-    val errors: List<Error>
+    @SerializedName("status_message")
+    val status: String,
+    @SerializedName("status_code")
+    val code: String,
+    val success: Boolean,
 ) : Parcelable
 
-@Parcelize
-data class Error(
-    @SerializedName("type")
-    val type: String,
-    @SerializedName("detail")
-    val detail: String?
-) : Parcelable

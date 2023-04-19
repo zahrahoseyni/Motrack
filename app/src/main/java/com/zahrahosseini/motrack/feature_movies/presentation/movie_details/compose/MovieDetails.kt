@@ -22,12 +22,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.zahrahosseini.motrack.R
 import com.zahrahosseini.motrack.core.presentation.design_system.theme.moTrackColors
 import com.zahrahosseini.motrack.core.utils.ApiConstants.Companion.API_KEY
-import com.zahrahosseini.motrack.core.utils.network.ApiResult
-import com.zahrahosseini.motrack.core.utils.network.data
-import com.zahrahosseini.motrack.core.utils.view.handleExceptions
-import com.zahrahosseini.motrack.core.utils.view.showToast
 import com.zahrahosseini.motrack.feature_movies.domain.movie_details.entity.MoviesDetailsArg
-import com.zahrahosseini.motrack.feature_movies.domain.movie_list.entity.MovieItem
 import com.zahrahosseini.motrack.feature_movies.presentation.MoviesViewModel
 
 @Composable

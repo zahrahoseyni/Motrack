@@ -57,7 +57,7 @@ class MoviesViewModel @Inject constructor(
                         _errorException.emit(this.exception)
                     }
                     is ApiResult.ServerError -> {
-                        _errorMessage.emit(this.errorBody.errors[0].toString())
+                        this.errorBody?.status?.let { _errorMessage.emit(it) }
                     }
                     is ApiResult.Success -> {
                         _moviesResult.value = this.data.results
@@ -76,7 +76,7 @@ class MoviesViewModel @Inject constructor(
                         _errorException.emit(this.exception)
                     }
                     is ApiResult.ServerError -> {
-                        _errorMessage.emit(this.errorBody.errors[0].toString())
+                        this.errorBody?.status?.let { _errorMessage.emit(it) }
                     }
                     is ApiResult.Success -> {
                         _movieDetailsResult.emit(this.data)

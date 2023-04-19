@@ -9,7 +9,7 @@ import com.zahrahosseini.motrack.core.domain.entity.GeneralError
 sealed class ApiResult<out R> {
     data class Success<out T>(val data: T) : ApiResult<T>()
     data class Error(val exception: Exception) : ApiResult<Nothing>()
-    data class ServerError(val errorBody: GeneralError) : ApiResult<Nothing>()
+    data class ServerError(val errorBody: GeneralError?) : ApiResult<Nothing>()
     object Init : ApiResult<Nothing>()
     object Loading : ApiResult<Nothing>()
     object SuccessNoContent : ApiResult<Nothing>()
