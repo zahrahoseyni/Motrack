@@ -11,6 +11,10 @@ import androidx.fragment.app.viewModels
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavDirections
+import androidx.navigation.NavOptions
+import com.zahrahosseini.motrack.core.utils.view.canNavigate
+import com.zahrahosseini.motrack.core.utils.view.navigateSafe
 import com.zahrahosseini.motrack.feature_movies.presentation.MoviesViewModel
 import com.zahrahosseini.motrack.feature_movies.presentation.movies_list.compose.MoviesListScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,9 +26,6 @@ class MoviesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initUiComponent()
-        initUiListener()
-        initObservers()
     }
 
     override fun onCreateView(
@@ -34,17 +35,16 @@ class MoviesListFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                MoviesListScreen(viewModel)
+                MoviesListScreen(viewModel) {
+                    navigate(MoviesListFragmentDirections.actionMoviesListFragmentToMoviesDetailsFragment())
+                }
             }
         }
     }
 
-    private fun initUiComponent() {
+    fun navigate(directions: NavDirections, navOptions: NavOptions? = null) {
+        if (canNavigate())
+            navigateSafe(directions, navOptions)
     }
 
-    private fun initUiListener() {
-    }
-
-    private fun initObservers() {
-    }
 }

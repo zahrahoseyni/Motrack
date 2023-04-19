@@ -1,8 +1,10 @@
 package com.zahrahosseini.motrack.feature_movies.data.repository
 
 import com.zahrahosseini.motrack.feature_movies.data.remote.MovieApi
-import com.zahrahosseini.motrack.feature_movies.domain.entity.MoviesListArg
-import com.zahrahosseini.motrack.feature_movies.domain.entity.MoviesListResponse
+import com.zahrahosseini.motrack.feature_movies.domain.movie_details.entity.MovieDetailsResponse
+import com.zahrahosseini.motrack.feature_movies.domain.movie_details.entity.MoviesDetailsArg
+import com.zahrahosseini.motrack.feature_movies.domain.movie_list.entity.MoviesListArg
+import com.zahrahosseini.motrack.feature_movies.domain.movie_list.entity.MoviesListResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -20,6 +22,16 @@ class MovieRepositoryImpl @Inject constructor(
                 language = moviesListArg.language,
                 page = moviesListArg.page,
                 region = moviesListArg.region
+            )
+        }
+
+    override suspend fun getMovieDetails(moviesDetailsArg: MoviesDetailsArg): Response<MovieDetailsResponse> =
+        withContext(ioDispatcher) {
+            movieApi.getMovieDetails(
+                movie_id = moviesDetailsArg.movieId,
+                apiKey = moviesDetailsArg.apiKey,
+                language = moviesDetailsArg.language,
+                append = moviesDetailsArg.append
             )
         }
 }

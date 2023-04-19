@@ -1,10 +1,10 @@
-package com.zahrahosseini.motrack.feature_movies.domain.usecase
+package com.zahrahosseini.motrack.feature_movies.domain.movie_list.usecase
 
 import com.zahrahosseini.motrack.core.di.qualifiers.IoDispatcher
 import com.zahrahosseini.motrack.core.domain.usecase.ApiUseCase
 import com.zahrahosseini.motrack.feature_movies.data.repository.MovieRepository
-import com.zahrahosseini.motrack.feature_movies.domain.entity.MoviesListArg
-import com.zahrahosseini.motrack.feature_movies.domain.entity.MoviesListResponse
+import com.zahrahosseini.motrack.feature_movies.domain.movie_list.entity.MoviesListArg
+import com.zahrahosseini.motrack.feature_movies.domain.movie_list.entity.MoviesListResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import retrofit2.Response
 import javax.inject.Inject

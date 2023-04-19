@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.zahrahosseini.motrack.core.presentation.design_system.theme.moTrackColors
-import com.zahrahosseini.motrack.feature_movies.domain.entity.MovieItem
+import com.zahrahosseini.motrack.feature_movies.domain.movie_list.entity.MovieItem
 
 @Composable
 fun MovieItem(

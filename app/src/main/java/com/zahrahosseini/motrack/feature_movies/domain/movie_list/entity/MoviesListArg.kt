@@ -1,4 +1,4 @@
-package com.zahrahosseini.motrack.feature_movies.domain.entity
+package com.zahrahosseini.motrack.feature_movies.domain.movie_list.entity
 
 data class MoviesListArg(
     val apiKey: String,

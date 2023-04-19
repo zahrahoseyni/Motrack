@@ -1,17 +1,13 @@
-package com.zahrahosseini.motrack.feature_movies.presentation.movies_list
+package com.zahrahosseini.motrack.feature_movies.presentation.movie_details
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.runtime.getValue
 import androidx.fragment.app.viewModels
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.zahrahosseini.motrack.feature_movies.presentation.MoviesViewModel
-import com.zahrahosseini.motrack.feature_movies.presentation.movies_list.compose.MovieDetails
-import com.zahrahosseini.motrack.feature_movies.presentation.movies_list.compose.MoviesListScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

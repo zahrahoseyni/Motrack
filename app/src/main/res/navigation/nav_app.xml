@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/moviesListFragment"
         android:name="com.zahrahosseini.motrack.feature_movies.presentation.movies_list.MoviesListFragment"
-        android:label="MoviesListFragment" />
+        android:label="MoviesListFragment" >
+        <action
+            android:id="@+id/action_moviesListFragment_to_moviesDetailsFragment"
+            app:destination="@id/moviesDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesDetailsFragment"
+        android:name="com.zahrahosseini.motrack.feature_movies.presentation.movie_details.MoviesDetailsFragment"
+        android:label="MoviesDetailsFragment" />
 </navigation>
