@@ -22,7 +22,7 @@ fun MovieItem(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(8.dp)
+            .padding(16.dp)
             .clickable {
                 onMovieItemClicked(movie.id)
             }

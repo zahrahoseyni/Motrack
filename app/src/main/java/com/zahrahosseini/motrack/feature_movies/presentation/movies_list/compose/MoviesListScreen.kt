@@ -55,18 +55,22 @@ fun MoviesListScreen(
             style = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold)
         )
 
-        LazyColumn(modifier = Modifier
-            .constrainAs(cmpList) {
-                top.linkTo(txtHeader.bottom, 16.dp)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-            }
-            .padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        LazyColumn(
+            modifier = Modifier
+                .constrainAs(cmpList) {
+                    top.linkTo(txtHeader.bottom, 16.dp)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
 
             item {
                 moviesList.forEach { movie ->
                     MovieItem(
-                        movie, modifier = Modifier.bgRounded20WhiteStrokeNeutral15()
+                        movie, modifier = Modifier
+                            .bgRounded20WhiteStrokeNeutral15()
                     ) {
                         viewModel.selectedMovieId.value = it
                         onMovieItemClicked()
