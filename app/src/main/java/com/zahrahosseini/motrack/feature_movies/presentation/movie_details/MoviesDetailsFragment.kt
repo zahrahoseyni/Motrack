@@ -7,39 +7,33 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.zahrahosseini.motrack.feature_movies.presentation.MoviesViewModel
+import com.zahrahosseini.motrack.feature_movies.presentation.movie_details.compose.MovieDetails
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MoviesDetailsFragment : Fragment() {
 
-    private val viewModel: MoviesViewModel by viewModels()
+    private val viewModel: MoviesViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initUiComponent()
-        initUiListener()
-        initObservers()
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-             //   MovieDetails()
+                MovieDetails(viewModel)
             }
         }
     }
 
-    private fun initUiComponent() {
-    }
 
-    private fun initUiListener() {
-    }
 
-    private fun initObservers() {
-    }
 }

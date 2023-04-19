@@ -1,8 +1,10 @@
 package com.zahrahosseini.motrack.feature_movies.presentation.movies_list.compose
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -19,16 +21,15 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.zahrahosseini.motrack.R
 import com.zahrahosseini.motrack.core.presentation.design_system.shapes.bgRounded20WhiteStrokeNeutral15
+import com.zahrahosseini.motrack.core.presentation.design_system.theme.moTrackColors
 import com.zahrahosseini.motrack.core.utils.ApiConstants.Companion.API_KEY
 import com.zahrahosseini.motrack.feature_movies.domain.movie_list.entity.MoviesListArg
 import com.zahrahosseini.motrack.feature_movies.presentation.MoviesViewModel
 
 @Composable
 fun MoviesListScreen(
-    viewModel: MoviesViewModel,
-    onMovieItemClicked: () -> Unit
+    viewModel: MoviesViewModel, onMovieItemClicked: () -> Unit
 ) {
-    val context = LocalContext.current
 
     viewModel.getMoviesList(
         MoviesListArg(
@@ -38,7 +39,7 @@ fun MoviesListScreen(
     val moviesList by viewModel.moviesResult.collectAsState()
 
 
-    ConstraintLayout {
+    ConstraintLayout() {
         val (txtHeader, cmpList) = createRefs()
 
         val topGuideline = createGuidelineFromTop(16.dp)
@@ -54,22 +55,18 @@ fun MoviesListScreen(
             style = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold)
         )
 
-        LazyColumn(
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-            modifier = Modifier
-                .constrainAs(cmpList) {
-                    top.linkTo(txtHeader.bottom, 16.dp)
-                    start.linkTo(parent.start)
-                    end.linkTo(parent.end)
+        LazyColumn(modifier = Modifier
+            .constrainAs(cmpList) {
+                top.linkTo(txtHeader.bottom, 16.dp)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
+            .padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
 
-                }
-                .padding(8.dp)) {
             item {
                 moviesList.forEach { movie ->
                     MovieItem(
-                        movie,
-                        modifier = Modifier
-                            .bgRounded20WhiteStrokeNeutral15()
+                        movie, modifier = Modifier.bgRounded20WhiteStrokeNeutral15()
                     ) {
                         viewModel.selectedMovieId.value = it
                         onMovieItemClicked()

@@ -24,8 +24,7 @@ import javax.inject.Inject
 class MoviesViewModel @Inject constructor(
     private val moviesListUseCase: MoviesListUseCase,
     private val moviesDetailsUseCase: MoviesDetailsUseCase
-) :
-    ViewModel() {
+) : ViewModel() {
 
     var selectedMovieId: MutableState<Int> = mutableStateOf(1)
 
